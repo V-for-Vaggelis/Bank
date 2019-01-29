@@ -1,41 +1,39 @@
 #ifndef ACCOUNT
 #define ACCOUNT //ensures class does not get defined twice which could create errors#include <iostream>
-#endif
+#include "Person.h"
 class Account {
 protected:
+  Person p;
   double balance;
   int numberOfTransactions;
-  std::string Owner,IBAN,contactPhone;
+  std::string IBAN;
 public:
   Account() {
-    Owner = "";
     IBAN = "";
     balance = 0;
     numberOfTransactions = 0;
-    contactPhone = "";
   }
-  Account(std::string name, std::string number) {
-    Owner = name;
+  Account(Person per, std::string number) {
+    p = per;
     IBAN = number;
     balance = 0;
-    contactPhone = "";
     numberOfTransactions = 0;
   }
-  Account(std::string name, std::string number, double money, std::string phone) {
-    Owner = name;
+  Account(Person per, std::string number, double money) {
+    p = per;
     IBAN = number;
     balance = money;
-    contactPhone = phone;
     numberOfTransactions = 0;
   }
+  virtual void clacCost();
   void setContactPhone(std::string phone) {
-    contactPhone = phone;
+    p.setContactPhone(phone);
   }
   std::string getContactPhone() {
-    return contactPhone;
+    return p.getContactPhone();
   }
   std::string getOwner() {
-    return Owner;
+    return p.getName();
   }
   std::string getIBAN() {
     return IBAN;
@@ -59,9 +57,9 @@ public:
     }
   }
   void show() {
-    std::cout << "Name: " << Owner << std::endl;
+    p.printPerson();
     std::cout << "IBAN: " << IBAN << std::endl;
     std::cout << "balance: " << balance << std::endl;
-    std::cout << "contact: " << contactPhone << "\n" <<std::endl;
   }
 };
+#endif
