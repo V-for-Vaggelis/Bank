@@ -4,7 +4,7 @@
 #include "Savings.h"
 
 class Bank {
-	std::vector<SavingsAccount> accounts;
+	std::vector<Account*> accounts;
 public:
 	void insertAccount(SavingsAccount sa) {
 		accounts.push_back(sa);
@@ -34,6 +34,5 @@ public:
 	}
 	//	void createAccount(std::string Owner0, std::string IBAN0, double Balance0, ) {
 
-}
 };
 #endif
