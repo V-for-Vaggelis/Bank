@@ -54,5 +54,12 @@ public:
 		int index = findAccount(iban);
 		accounts.at(index) -> withdraw(ammount);
 	}
+
+	void showAll() {
+		int end = accounts.size();
+		for (int i=0; i<end; i++) {
+			accounts.at(i) -> show();
+		}
+	}
 };
 #endif
