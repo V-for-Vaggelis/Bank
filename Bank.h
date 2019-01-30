@@ -44,7 +44,15 @@ public:
 			std::cout << "Account deleted\n" << std::endl;
 		}
 	}
-	//	void createAccount(std::string Owner0, std::string IBAN0, double Balance0, ) {
 
+	void depositToAccount(std::string iban, double ammount) {
+		int index = findAccount(iban);
+		accounts.at(index) -> deposit(ammount);
+	}
+
+	void withdrawFromAccount(std::string iban, double ammount) {
+		int index = findAccount(iban);
+		accounts.at(index) -> withdraw(ammount);
+	}
 };
 #endif
