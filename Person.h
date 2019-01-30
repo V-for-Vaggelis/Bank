@@ -1,5 +1,6 @@
 #ifndef PERSON
 #define PERSON //ensures class does not get defined twice which could create errors#include <iostream>
+#include <iostream>
 class Person{
 	int age;
 	std::string name, contactAddress, contactPhone;
@@ -10,7 +11,7 @@ class Person{
 			age = x;
 			name = y;
 			contactAddress = z;
-			contactAddress = k;
+			contactPhone = k;
 		}
 		void setName(std::string y) {
 			name = y;
@@ -31,7 +32,7 @@ class Person{
 			return contactAddress;
 		}
 		void setContactPhone(std::string ph) {
-			contactAddress = ph;
+			contactPhone = ph;
 		}
 		std::string getContactPhone() {
 			return contactPhone;

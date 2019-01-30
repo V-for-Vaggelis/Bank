@@ -4,10 +4,16 @@
 #include "Savings.h"
 #include "Person.h"
 #include "CheckingAccount.h"
+#include "Account.h"
+#include <iostream>
 
 class Bank {
 	std::vector<Account*> accounts;
 public:
+	Bank() {
+
+	}
+
 	void createAccount(Person per, std::string iban, double ammount, int type) {
 		Account* a;
 		if (type == 1) {
@@ -59,6 +65,13 @@ public:
 		int end = accounts.size();
 		for (int i=0; i<end; i++) {
 			accounts.at(i) -> show();
+		}
+	}
+
+	void calcTotalCost() {
+		int end = accounts.size();
+		for (int i=0; i<end; i++) {
+			accounts.at(i) -> calcCost();
 		}
 	}
 };
