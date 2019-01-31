@@ -10,17 +10,6 @@ protected:
   int numberOfTransactions;
   std::string IBAN;
 public:
-  Account() {
-    IBAN = "";
-    balance = 0;
-    numberOfTransactions = 0;
-  }
-  Account(Person per, std::string number) {
-    p = per;
-    IBAN = number;
-    balance = 0;
-    numberOfTransactions = 0;
-  }
   Account(Person per, std::string number, double money) {
     p = per;
     IBAN = number;

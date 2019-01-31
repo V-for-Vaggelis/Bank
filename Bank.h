@@ -13,6 +13,14 @@ public:
 	Bank() {
 
 	}
+	~Bank() {
+		std::cout << "\nDestructor called" << std::endl;
+		int end = accounts.size();
+		for (int i=0; i<end; i++) {
+			delete accounts[i]; //deletes the object
+			accounts.erase(accounts.begin() + i); //erases the pointer
+		}
+	}
 
 	void createAccount(Person per, std::string iban, double ammount, int type) {
 		Account* a;
@@ -33,7 +41,6 @@ public:
 			// std::string check = account_ref.getIBAN();
 			std::string check = accounts.at(i) -> getIBAN(); //a simpler way than depointing
 			if (check == iban) {
-				//				accounts.at(i).show();
 				return i;
 			}
 		}
@@ -46,8 +53,9 @@ public:
 			std::cout << "Account not found\n" << std::endl;
 		}
 		else {
-			accounts.erase(accounts.begin() + index);
-			std::cout << "Account deleted\n" << std::endl;
+			delete accounts[index]; //deletes the object
+			accounts.erase(accounts.begin() + index); //erases the pointer
+//			std::cout << "Account deleted\n" << std::endl;
 		}
 	}
 

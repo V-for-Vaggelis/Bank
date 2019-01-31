@@ -5,8 +5,6 @@
 
 class CheckingAccount:public Account {
 public:
-	CheckingAccount() : Account() {}
-	CheckingAccount(Person per, std::string number) : Account(per, number) {}
 	CheckingAccount(Person per, std::string number, double money) :	Account(per, number, money) {}
 
 	static double costPerTransaction; //static defines something whose value is inherited by every new object, it gets initialized in the global scope though

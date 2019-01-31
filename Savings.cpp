@@ -16,6 +16,8 @@ int main(int argc, char** argv) {
 	b.createAccount(p1, "GR4645030", 100, 2);
 	b.createAccount(p2, "GR98769525", 3000, 1);
 	b.createAccount(p2, "GR93405589", 3000, 2);
+	
+	//Create random transactions
 	for (int i=1; i<15; i++) {
 		/* initialize random seed: */
   		srand (time(NULL));
@@ -33,7 +35,13 @@ int main(int argc, char** argv) {
 		b.withdrawFromAccount("GR93405589", rand2);
 
 	}
+	cout << "\nBefore cost calculation:\n" << endl;
+	b.showAll();
 	b.calcTotalCost();
+	cout << "\nAfter cost calculation:\n" << endl;
+	b.showAll();
+	b.deleteAccount("GR23u343045");
+	cout << "\nAfter deleting the first\n" << endl;
 	b.showAll();
 	return 0;
 }
