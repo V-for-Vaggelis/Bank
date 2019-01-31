@@ -42,14 +42,12 @@ public:
 
   void deposit(double ammount) {
     balance += ammount;
-    // calcCost();
     numberOfTransactions++;
   }
 
   void withdraw(double ammount) {
     if (ammount <= balance) {
       balance -= ammount;
-      // calcCost();
       numberOfTransactions++;
     }
     else {
